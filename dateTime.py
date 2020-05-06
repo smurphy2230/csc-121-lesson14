@@ -1,6 +1,6 @@
 #  this module is part of Python's standard library. It supplies classes
 #  for manipulating dates and times.
-from datetime import datetime
+from datetime import datetime, timedelta
 
 #  datetime requires 3 parameters (year, month, day)
 #  checkout = datetime(2019, 7, 4)
@@ -94,3 +94,22 @@ from datetime import datetime
 #  print("Timespan: ", timespan)
 #  print()
 
+#  use timedelta to find the difference of two dates. A timedelta
+#  represents a duration
+
+#  start_time = datetime(2019, 7, 4, 5, 16, 2, 20)
+#  end_time = datetime(2019, 9, 8, 3, 16, 5, 15)
+#  length = end_time - start_time
+#  print("Length: ", length.days, "days")
+
+checkout_date = datetime.now()
+due_date = checkout_date + timedelta(days=14)
+print("Checkout date: ", checkout_date.strftime("%m/%d/%Y"))
+print("You must return the book within 14 days.")
+print("Due date: ", due_date.strftime("%m/%d/%Y"))
+
+start_time = datetime.now()
+deadline = start_time + timedelta(hours=2, minutes=30)
+print("Test start time: ", start_time.strftime("%I:%M:%S %p"))
+print("You have 2 hours 30 minutes to complete the exam.")
+print("Submit the test by: ", deadline.strftime("%I:%M:%S %p"))
